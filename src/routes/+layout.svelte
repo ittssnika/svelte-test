@@ -1,51 +1,50 @@
 <nav> 
     <div class="nav-container">
-        <a href="/" class ="nav-logo" title ="Back to Homepage">Вероника Прыгунова</a>
+        <a href="/" class="nav-logo" title="Back to Homepage">Вероника Прыгунова</a>
         <div class="nav-links">
             {#each nav as link}
-
-            <a href={link.href} class="link">{link.title}</a>
-
+                {#if link.isShow}
+                    <a href={link.href} class="link">{link.title}</a>
+                {/if}
             {/each}
         </div>
     </div>
 </nav>
-
 <div class="container">
     <!-- Pages will be injected below-->
     <slot></slot>
 </div>
+
 <script>
-    const nav =[
-    {
-    title: 'Обо мне',
-    href: '/about'
-    },
-    
-    {
-    title: 'Блог',
-    
-    href: '/blog'
-    
-    },
-    
-    {
-    title: 'Портфолио',
-    href: '/project'
-    },
+    const nav = [
+        {
+            title: 'Обо мне',
+            href: '/about',
+            isShow: true,
+        },
+        {
+            title: 'Блог',
+            href: '/blog',
+            isShow: true,
+        },
+        {
+            title: 'Портфолио',
+            href: '/project',
+            isShow: true,
+        },
+        {
+            title: 'Контакты',
+            href: '/contact',
+            isShow: true,
+        },
+        {
+            title: 'temp',
+            href: '/temp',
+            isShow: false,
+        }
+    ];
+</script>
 
-    {
-    title: 'Контакты',
-    href: '/contact'
-    },
-
-    {
-    title: 'temp',
-    href: '/temp'
-    }
-    
-    ]
-    </script>
 <style>
     .container {
         max-width: 1400px;
